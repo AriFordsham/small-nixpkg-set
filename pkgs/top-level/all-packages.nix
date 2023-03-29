@@ -18410,10 +18410,6 @@ with pkgs;
 
   omniorb = callPackage ../development/tools/omniorb { };
 
-
-withOptionalDependencies = true;
-  });
-
   openai-whisper = with python3.pkgs; toPythonApplication openai-whisper;
 
   openai-whisper-cpp = callPackage ../tools/audio/openai-whisper-cpp {
@@ -24944,13 +24940,6 @@ withOptionalDependencies = true;
 
   mycorrhiza = callPackage ../servers/mycorrhiza { };
 
-napalm.overridePythonAttrs (attrs: {
-      # add community frontends that depend on the napalm python package
-      propagatedBuildInputs = attrs.propagatedBuildInputs ++ [
-        napalm-hp-procurve
-      ];
-    })
-  );
 
   nas = callPackage ../servers/nas { };
 
@@ -30010,9 +29999,6 @@ napalm.overridePythonAttrs (attrs: {
   fomp = callPackage ../applications/audio/fomp { };
 
   formatter = callPackage ../applications/misc/formatter { };
-
-inherit buildPythonApplication;
-  };
 
   foxotron = callPackage ../applications/graphics/foxotron {
     inherit (darwin.apple_sdk.frameworks) AVFoundation Carbon Cocoa CoreAudio Kernel OpenGL;
