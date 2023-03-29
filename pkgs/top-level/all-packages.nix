@@ -38284,8 +38284,6 @@ with pkgs;
 
   nix-prefetch = callPackage ../tools/package-management/nix-prefetch { };
 
-toPythonApplication nix-prefetch-github;
-
   inherit (callPackages ../tools/package-management/nix-prefetch-scripts { })
     nix-prefetch-bzr
     nix-prefetch-cvs
